@@ -1,15 +1,16 @@
 class Solution {
     public int singleNumber(int[] nums) {
-        List<Integer> newNums = new ArrayList<>();
+        Set<Integer> numsSet = new HashSet<>();
 
-        for(int i = 0; i < nums.length; i++){
-            if(!newNums.contains(nums[i])){
-                newNums.add(nums[i]);
+        for(int i : nums){
+            if(!numsSet.contains(i)){
+                numsSet.add(i);
             } else {
-                newNums.remove(Integer.valueOf(nums[i]));
+                numsSet.remove(i);
             }
         }
 
-        return newNums.get(0);
+        return numsSet.iterator().next();
+
     }
 }
