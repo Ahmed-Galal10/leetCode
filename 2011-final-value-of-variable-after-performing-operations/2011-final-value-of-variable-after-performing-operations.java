@@ -1,12 +1,14 @@
 class Solution {
     public int finalValueAfterOperations(String[] operations) {
+        Map<String, Integer> operationMap = new HashMap<>();
+        operationMap.put("X++", 1);
+        operationMap.put("++X", 1);
+        operationMap.put("X--", -1);
+        operationMap.put("--X", -1);
+        
         int x = 0;
         for (String operation : operations){
-            if (operation.contains("+")){
-                x++;
-            } else if(operation.contains("-")){
-                x--;
-            }
+            x += operationMap.get(operation);
         }
 
         return x;
