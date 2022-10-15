@@ -4,12 +4,12 @@ import java.util.stream.Collectors;
 
 
 class Solution {
-    public String restoreString(String s, int[] indices) {
-        StringBuilder originalString = new StringBuilder(s);
-        for (int i = 0; i < indices.length; i++) {
-            originalString.setCharAt(indices[i], s.charAt(i));
+    public String restoreString(String originalString, int[] indices) {
+        char[] charArray = new char[indices.length];
+        for (int i=0; i < indices.length; i++){
+            charArray[indices[i]] = originalString.charAt(i);
         }
         
-        return originalString.toString();
+        return new String(charArray);
     }
 }
